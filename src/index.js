@@ -6,7 +6,6 @@ import gitImg from "./assets/git.png";
 
 const locationInput = document.getElementById("input-location");
 
-const weatherDiv = document.getElementById("weather-container");
 let currentDate = new Date().toJSON().slice(0, 10);
 document.getElementById("current-date").innerHTML =
   "<b>Today's Date: </b>" + currentDate;

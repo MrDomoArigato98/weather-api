@@ -1,12 +1,23 @@
 import { Weather } from "./weatherObject";
 
+const loaderContainer = document.querySelector(".loader");
+
+const displayLoading = () => {
+  loaderContainer.style.display = 'block';
+}
+const hideLoading = () => {
+  loaderContainer.style.display = 'none';
+}
 async function getWeather(url) {
   try {
+    displayLoading()
     const response = await fetch(url, { mode: "cors" });
     if(!response.ok){
+      hideLoading()
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
     const data = await response.json();
+    hideLoading()
     return data;
   } catch (error) {
     console.log(error);
